@@ -13,6 +13,10 @@ jobs:
             - name: Hola Mundo
               run: echo "Hola mundo $VARIABLES_DE_ENTORNO"
 
+            #Ver en que directorio estamos
+            - name: Working dir
+              run: ls -al
+
     second_job:
         #${{}} contexto
         # Condicionar el job, verificar si el flujo de trabajo se está ejecutando en la rama principal
