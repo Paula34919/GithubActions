@@ -1,0 +1,35 @@
+#Mi primer workflow
+#nombre
+name: "Hola mundo"
+
+#Trigger
+on:
+    push:
+        branches: ["main"]
+
+#Tareas
+jobs:
+    #nombre de la tarea
+    deploy-codigofacilito:
+        #maquina virtual
+        runs-on: ubuntu-latest
+        #Pasos
+        steps:
+            run: echo "Hacemos pull del codigo"
+            run: echo "Correr migraciones"
+            run: echo "Generar binario"
+            run: echo "Publicar version"
+    #nombre de la tarea
+    send-notification:
+        #maquina virtual
+        runs-on: ubuntu-latest
+        #Pasos
+        steps:
+            run: echo "Tarea donde se mandan las notificaciones"
+    #nombre de la tarea
+    test-code:
+        #maquina virtual
+        runs-on: ubuntu-latest
+        #Pasos
+        steps:
+            run: echo "Tarea donde se testea el codigo"
