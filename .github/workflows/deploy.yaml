@@ -1,35 +1,18 @@
-#Mi primer workflow
-#nombre
-name: "Hola mundo"
+name: Deploy to server
 
-#Trigger
-on:
-    push:
-        branches:
-            - "main"
-            - "develop"
+on: push
 
-#Tareas
 jobs:
-    #nombre de la tarea
-    ImprimirMensajesEnLaRamaMain:
-        #Codicional
-        if: github.ref == 'refs/heads/main'
-        #maquina virtual
+    first_job:
         runs-on: ubuntu-latest
-        #Pasos
+
         steps:
-            - uses: actions/checkout@v4                 #Comando para descargar el repo
-            - run: echo "Funciono estas en la rama main"       #Imprimir mensaje
-            
-    #nombre de la tarea
-    ImprimirMensajesEnLaRamaDevelop:
-        #Codicional
-        if: github.ref == 'refs/heads/develop'
-        #maquina virtual
+            - name: Hola Mundo
+              run: echo "Hola mundo"
+
+    second_job:
         runs-on: ubuntu-latest
-        #Pasos
+
         steps:
-            - uses: actions/checkout@v4                 #Comando para descargar el repo
-            - run: echo "Funciono estas en la segunda rama develop"       #Imprimir mensaje
-            
+            - name: Hola Mundo 2
+              run: echo "Hola mundo segundo"
