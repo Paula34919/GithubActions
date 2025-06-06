@@ -15,21 +15,22 @@ jobs:
         runs-on: ubuntu-latest
         #Pasos
         steps:
-            run: echo "Hacemos pull del codigo"
-            run: echo "Correr migraciones"
-            run: echo "Generar binario"
-            run: echo "Publicar version"
-    #nombre de la tarea
+            - uses: actions/checkout@v4                 #Comando para descargar el repo
+            - run: echo "Hacemos pull del codigo"       #Imprimir mensaje
+            - run: echo "Correr migraciones"            #Imprimir mensaje
+            - run: echo "Generar binario"               #Imprimir mensaje
+            - run: echo "Publicar version"              #Imprimir mensaje
+            #nombre de la tarea
     send-notification:
         #maquina virtual
         runs-on: ubuntu-latest
         #Pasos
         steps:
-            run: echo "Tarea donde se mandan las notificaciones"
+            - run: echo "Tarea donde se mandan las notificaciones"
     #nombre de la tarea
     test-code:
         #maquina virtual
         runs-on: ubuntu-latest
         #Pasos
         steps:
-            run: echo "Tarea donde se testea el codigo"
+            - run: echo "Tarea donde se testea el codigo"
