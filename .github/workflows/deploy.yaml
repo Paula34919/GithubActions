@@ -6,9 +6,12 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
 
+        env:
+            VARIBALES_DE_ENTORNO: CodigoFacilito
+
         steps:
             - name: Hola Mundo
-              run: echo "Hola mundo"
+              run: echo "Hola mundo $VARIABLES_DE_ENTORNO"
 
     second_job:
         #${{}} contexto
