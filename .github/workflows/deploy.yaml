@@ -5,32 +5,31 @@ name: "Hola mundo"
 #Trigger
 on:
     push:
-        branches: ["main"]
+        branches:
+            - "main"
+            - "develop"
 
 #Tareas
 jobs:
     #nombre de la tarea
-    deploy-codigofacilito:
+    ImprimirMensajesEnLaRamaMain:
+        #Codicional
+        if: github.ref == 'refs/heads/main'
         #maquina virtual
         runs-on: ubuntu-latest
         #Pasos
         steps:
             - uses: actions/checkout@v4                 #Comando para descargar el repo
-            - run: echo "Hacemos pull del codigo"       #Imprimir mensaje
-            - run: echo "Correr migraciones"            #Imprimir mensaje
-            - run: echo "Generar binario"               #Imprimir mensaje
-            - run: echo "Publicar version"              #Imprimir mensaje
-            #nombre de la tarea
-    send-notification:
-        #maquina virtual
-        runs-on: ubuntu-latest
-        #Pasos
-        steps:
-            - run: echo "Tarea donde se mandan las notificaciones"
+            - run: echo "Funciono estas en la rama main"       #Imprimir mensaje
+            
     #nombre de la tarea
-    test-code:
+    ImprimirMensajesEnLaRamaDevelop:
+        #Codicional
+        if: github.ref == 'refs/heads/develop'
         #maquina virtual
         runs-on: ubuntu-latest
         #Pasos
         steps:
-            - run: echo "Tarea donde se testea el codigo"
+            - uses: actions/checkout@v4                 #Comando para descargar el repo
+            - run: echo "Funciono estas en la rama develop"       #Imprimir mensaje
+            
