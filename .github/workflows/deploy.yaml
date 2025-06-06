@@ -23,4 +23,13 @@ jobs:
                 name: archivo-test
                 path: test.log #carpeta o archivo
 
-            
+    segundo_trabajo:
+        runs-on: ubuntu-latest
+        #Se agrega debido a que los jobs se ejecutan en paralelo, y puede que el segundo trabajo termine primero
+        needs: first_job
+
+        steps:
+            - name: Descargar Artefacto
+              uses: actions/download-artifact@4
+              with:
+                name: archivo-test
