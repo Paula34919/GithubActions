@@ -31,5 +31,5 @@ jobs:
         #Pasos
         steps:
             - uses: actions/checkout@v4                 #Comando para descargar el repo
-            - run: echo "Funciono estas en la rama develop"       #Imprimir mensaje
+            - run: echo "Funciono estas en la segunda rama develop"       #Imprimir mensaje
             
