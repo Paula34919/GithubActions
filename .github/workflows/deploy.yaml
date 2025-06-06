@@ -10,7 +10,7 @@ jobs:
             VARIBALES_DE_ENTORNO: CodigoFacilito
 
         outputs:
-                salida: ${{steps.step_1.outputs.my_variable}}
+         salida: ${{steps.step_1.outputs.my_variable}}
 
         steps:
             - name: Working dir
@@ -23,7 +23,6 @@ jobs:
 
     second_job:
         #${{}} contexto
-        if: ${{github.ref == 'refs/heads/main'}}
         needs: first_job
         runs-on: ubuntu-latest
 
