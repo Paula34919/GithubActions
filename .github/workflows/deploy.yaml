@@ -9,6 +9,9 @@ jobs:
         env:
             VARIBALES_DE_ENTORNO: CodigoFacilito
 
+        outputs:
+                salida: ${{steps.step_1.outputs.my_variable}}
+
         steps:
             - name: Working dir
               id: step_1
@@ -17,13 +20,15 @@ jobs:
             - name: Obtener mensaje
               run: echo "${{steps.step_1.outputs.my_variable}}"
 
+
     second_job:
         #${{}} contexto
-        # Condicionar el job, verificar si el flujo de trabajo se está ejecutando en la rama principal
-        #Es decir que se ejecute si el flujo de trabajo fue activado en la rama principal
         if: ${{github.ref == 'refs/heads/main'}}
         needs: first_job
         runs-on: ubuntu-latest
+
+        env:
+            SALIDA: ${{needs.first_job.outputs.salida}}
 
         steps:
             - name: Hola Mundo 2
