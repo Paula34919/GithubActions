@@ -32,4 +32,4 @@ jobs:
         steps:
             - name: Hola Mundo 2
             #Saber el valor de este paso
-              run: echo "$Salida"
+              run: echo "$SALIDA"
