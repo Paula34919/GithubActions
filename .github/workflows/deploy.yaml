@@ -11,10 +11,14 @@ jobs:
               run: echo "Hola mundo"
 
     second_job:
+        #${{}} contexto
+        # Condicionar el job, verificar si el flujo de trabajo se está ejecutando en la rama principal
+        #Es decir que se ejecute si el flujo de trabajo fue activado en la rama principal
         if: ${{github.ref == 'refs/heads/main'}}
         needs: first_job
         runs-on: ubuntu-latest
 
         steps:
             - name: Hola Mundo 2
-              run: echo "Hola mundo segundo"
+            #Saber el valor de este paso
+              run: echo "Hola mundo ${{github.ref}}"
